@@ -12,3 +12,46 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+// MEDIA QUERY MANAGER
+/*
+0-600       PHONE   
+600-900     TAB POTRAIT
+900-1200    TAB LANDSCAPE
+1200-1800   WHERE OUR CODE WORKS
+1800+       BIG DESKTOP
+
+Order: Base + typography > general layout + grid > page layout > components
+
+*/
+
+
+// 1em = 16px
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {    
+            @content
+        }
+    }
+    
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {    
+            @content
+        }
+    }
+
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {    
+            @content
+        }
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {    
+            @content
+        }
+    }
+
+}
